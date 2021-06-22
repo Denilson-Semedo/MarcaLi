@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:padding="20dp"
+    tools:context=".SingUp1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:text="Tipo de Utilizador:"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5.4"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/userNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Utilizador Normal"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/main"
+                    android:onClick="onRadioButtonClicked"
+                    android:checked="true"
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:clickable="true"
+                android:backgroundTint="@color/white"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/propietario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Propietário"
+                    android:textColor="@color/black"
+                    android:onClick="onRadioButtonClicked"
+                    android:buttonTint="@color/main"
+                    android:layout_gravity="center"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <Button
+            android:id="@+id/continuar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8257E6"
+            android:backgroundTint="#8257E6"
+            android:text="Continuar"
+            android:textColor="@color/white"
+            app:backgroundTint="#8257E6"
+            app:rippleColor="#8257E6"
+            app:strokeColor="#8257E6"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
