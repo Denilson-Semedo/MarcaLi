@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MarcaLi</string>
+    <string-array name="origens">
+        <item>Camera</item>
+        <item>Gallery</item>
+    </string-array>
 </resources>

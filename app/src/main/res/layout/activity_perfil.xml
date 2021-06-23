@@ -6,18 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".Perfil">
+    tools:context=".Perfil"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:padding="20dp"
+        android:background="#168257E6">
 
         <LinearLayout
             android:layout_width="100dp"
             android:layout_height="match_parent">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/perfilPic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/denilson1"/>
@@ -31,45 +35,67 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Denilson"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="27dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="dstavares00@gmail.com"
-                    android:textStyle="bold"
-                    android:textSize="15sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="27dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LordGodin"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="15sp"/>
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alterar Fotografia"
+                    android:textStyle="bold"
+                    android:textColor="#8257E6"
+                    android:textSize="15sp"
+                    android:onClick="changePhoto"
+                    android:clickable="true"/>
 
             </LinearLayout>
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome Completo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_person_outline"
+                android:text="Denilson Semedo Tavares"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="330dp"
+            android:layout_height="47dp"
+            android:text="Terminar sessão"
+            android:layout_gravity="center"
+            android:backgroundTint="#F60909"/>
 
     </LinearLayout>
 
