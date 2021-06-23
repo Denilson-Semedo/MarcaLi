@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SingUpUser extends AppCompatActivity {
 
@@ -16,8 +16,8 @@ public class SingUpUser extends AppCompatActivity {
     TextInputLayout name, email, userName, pass, pass2;
     Button registrar;
 
-    //FirebaseDatabase rootNode;
-    //DatabaseReference reference;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,12 @@ public class SingUpUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //rootNode = FirebaseDatabase.getInstance();
-                //reference = rootNode.getReference("users");
+               /* if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2()) {
+                    return;
+                }*/
+
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("users");
 
                 //get all the values
                 String nome = name.getEditText().getText().toString();
@@ -50,12 +54,7 @@ public class SingUpUser extends AppCompatActivity {
 
                 UserHelper helper = new UserHelper(tipo, nome, username, mail, password);
 
-               // reference.child(username).setValue(helper);
-                validarNome();
-                validarUserName();
-                validarEmail();
-                validarPassword();
-                validarPassword2();
+                reference.child(username).setValue(helper);
 
             }
         });

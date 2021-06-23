@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MarcaLi">
-        <activity android:name=".SingUp1"></activity>
+        <activity android:name=".Perfil"></activity>
+        <activity android:name=".SingUp1" />
         <activity android:name=".SingUpUser" />
         <activity android:name=".SignUp1" />
         <activity android:name=".Login" />

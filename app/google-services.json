@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "421929508939",
+    "firebase_url": "https://marcali-316019-default-rtdb.firebaseio.com",
+    "project_id": "marcali-316019",
+    "storage_bucket": "marcali-316019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421929508939:android:d22838bec9830695c96dce",
+        "android_client_info": {
+          "package_name": "com.example.marcali"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421929508939-tukmp2u8c2da0n2ub8utlobmp6m0bpf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjuu7N7BzBdklKB7c7dJ-nxL1giihLdto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421929508939-tukmp2u8c2da0n2ub8utlobmp6m0bpf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
