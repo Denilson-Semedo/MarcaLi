@@ -15,7 +15,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -23,17 +27,29 @@ import java.io.OutputStream;
 public class Perfil extends AppCompatActivity {
 
     ImageView perfilPic;
+    TextView field_user;
+    TextInputLayout field_nome, field_email, field_telefone, field_morada, field_password;
 
     static final int FROM_CAMERA_CODE = 1, FROM_GALLERY_CODE = 2;
-
-    OutputStream outputStream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+        //hooks
+        field_nome = findViewById(R.id.nome);
+        field_email = findViewById(R.id.email);
+        field_telefone = findViewById(R.id.telefone);
+        field_morada = findViewById(R.id.morada);
+        field_password = findViewById(R.id.password);
+        field_user = findViewById(R.id.user);
+
+
         perfilPic = findViewById(R.id.perfilPic);
+
+        prencherDados();
+
     }
 
     public void changePhoto(View view) {
@@ -95,6 +111,22 @@ public class Perfil extends AppCompatActivity {
         }
     }
 
+    public void prencherDados(){
+        Intent intent = getIntent();
+        String user_username = intent.getStringExtra("username");
+        String user_nome = intent.getStringExtra("nome");
+        String user_email = intent.getStringExtra("email");
+        String user_telefone = intent.getStringExtra("telefone");
+        String user_morada = intent.getStringExtra("morada");
+        String user_password = intent.getStringExtra("password");
+
+        field_email.getEditText().setText(user_email);
+        field_nome.getEditText().setText(user_nome);
+        field_telefone.getEditText().setText("+238 " + user_telefone);
+        field_morada.getEditText().setText(user_morada);
+        field_password.getEditText().setText(user_password);
+        field_user.setText(user_username);
+    }
 
     public void msg(Context c, String s) {
         Toast.makeText(c, s, Toast.LENGTH_SHORT).show();

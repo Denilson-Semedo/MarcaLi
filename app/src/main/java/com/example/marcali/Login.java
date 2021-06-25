@@ -100,7 +100,22 @@ public class Login extends AppCompatActivity {
 
                     if (passwordd.equals(passwordInput)) {
 
+                        String BD_nome = dataSnapshot.child(userNameInput).child("nome").getValue(String.class);
+                        String BD_username = dataSnapshot.child(userNameInput).child("username").getValue(String.class);
+                        String BD_email = dataSnapshot.child(userNameInput).child("email").getValue(String.class);
+                        String BD_telefone = dataSnapshot.child(userNameInput).child("telefone").getValue(String.class);
+                        String BD_morada = dataSnapshot.child(userNameInput).child("morada").getValue(String.class);
+                        String BD_password = dataSnapshot.child(userNameInput).child("password").getValue(String.class);
+
                         Intent intent = new Intent(getApplicationContext(),Perfil.class);
+
+                        intent.putExtra("nome", BD_nome);
+                        intent.putExtra("username", BD_username);
+                        intent.putExtra("email", BD_email);
+                        intent.putExtra("telefone", BD_telefone);
+                        intent.putExtra("morada", BD_morada);
+                        intent.putExtra("password", BD_password);
+
                         startActivity(intent);
 
                     } else {

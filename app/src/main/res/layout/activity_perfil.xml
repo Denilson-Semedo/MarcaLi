@@ -40,6 +40,7 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LordGodin"
@@ -66,21 +67,90 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
+        android:layout_weight="6"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="Nome Completo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:drawablePadding="10dp"
                 android:drawableLeft="@drawable/ic_person_outline"
                 android:text="Denilson Semedo Tavares"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_email_outline"
+                android:text="dstavares00@gmail.com"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Telefone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_phone_outline"
+                android:text="9863786"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/morada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Morada">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_pin_outline"
+                android:text="Calabaceira"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_lock_outline"
+                android:text="1234"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -88,11 +158,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:orientation="vertical">
 
         <Button
             android:layout_width="330dp"
             android:layout_height="47dp"
+            android:drawableRight="@drawable/ic_log_out"
+            android:drawablePadding="10dp"
             android:text="Terminar sessão"
             android:layout_gravity="center"
             android:backgroundTint="#F60909"/>
