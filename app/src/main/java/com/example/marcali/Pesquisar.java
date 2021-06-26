@@ -21,7 +21,7 @@ public class Pesquisar extends AppCompatActivity {
         //Initialize ANDA ASSIGN VARIABLES
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        //set home selected
+        //set home selectedh
         bottomNavigationView.setSelectedItemId(R.id.search);
 
         //perform itemSelectedListener
