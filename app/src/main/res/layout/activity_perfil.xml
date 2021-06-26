@@ -157,7 +157,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:orientation="vertical">
@@ -172,6 +172,16 @@
             android:backgroundTint="#F60909"/>
 
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/main"
+        app:itemTextColor="@drawable/selector"
+        app:itemTextAppearanceInactive="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom="true"/>
 
 
 </LinearLayout>

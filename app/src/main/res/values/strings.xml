@@ -4,4 +4,8 @@
         <item>Camera</item>
         <item>Gallery</item>
     </string-array>
+    <string name="title_activity_pagina_principal">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

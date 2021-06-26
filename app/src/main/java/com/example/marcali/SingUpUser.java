@@ -2,6 +2,7 @@ package com.example.marcali;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SingUpUser extends AppCompatActivity {
 
     //variaveis
-    TextInputLayout name, email, userName, pass, pass2;
+    TextInputLayout name, email, userName, telefone_number, pass, pass2;
     Button registrar;
 
     FirebaseDatabase rootNode;
@@ -30,6 +31,7 @@ public class SingUpUser extends AppCompatActivity {
         userName  = findViewById(R.id.username);
         pass  = findViewById(R.id.password);
         pass2  = findViewById(R.id.password2);
+        telefone_number  = findViewById(R.id.telefone);
         registrar  = findViewById(R.id.registrar);
 
         //Save data in firebase on button click
@@ -37,9 +39,9 @@ public class SingUpUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               /* if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2()) {
+               if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2()) {
                     return;
-                }*/
+               }
 
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("users");
@@ -49,11 +51,16 @@ public class SingUpUser extends AppCompatActivity {
                 String username = userName.getEditText().getText().toString();
                 String mail = email.getEditText().getText().toString();
                 String password = pass2.getEditText().getText().toString();
+                String telefone = telefone_number.getEditText().getText().toString();
                 String tipo = getIntent().getExtras().getString("tipo");
 
+                Intent intent = new Intent(getApplicationContext(), Verificar.class);
+                intent.putExtra("telefone", telefone);
 
-                UserHelper helper = new UserHelper(tipo, nome, username, mail, password);
+                startActivity(intent);
 
+
+                UserHelper helper = new UserHelper(tipo, nome, username, mail, password, telefone);
                 reference.child(username).setValue(helper);
 
             }

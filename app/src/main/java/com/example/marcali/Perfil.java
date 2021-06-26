@@ -1,6 +1,7 @@
 package com.example.marcali;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +14,16 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -47,6 +52,39 @@ public class Perfil extends AppCompatActivity {
 
 
         perfilPic = findViewById(R.id.perfilPic);
+
+        //Initialize ANDA ASSIGN VARIABLES
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //set home selected
+        bottomNavigationView.setSelectedItemId(R.id.perfil);
+
+        //perform itemSelectedListener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.search:
+                        startActivity(new Intent(getApplicationContext()
+                                ,Pesquisar.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext()
+                                ,Principal.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.agendamento:
+                        startActivity(new Intent(getApplicationContext()
+                                ,Agendamentos.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.perfil:
+                        return true;
+                }
+                return false;
+            }
+        });
 
         prencherDados();
 
