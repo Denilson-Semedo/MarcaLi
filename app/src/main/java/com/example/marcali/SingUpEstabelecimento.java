@@ -5,16 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SingUpUser extends AppCompatActivity {
+public class SingUpEstabelecimento extends AppCompatActivity {
 
     //variaveis
-    TextInputLayout name, email, userName, telefone_number, pass, pass2;
+    TextInputLayout name, email, userName, tipo, morada, pass, pass2;
     Button registrar;
 
     FirebaseDatabase rootNode;
@@ -23,48 +24,48 @@ public class SingUpUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sing_up_user);
+        setContentView(R.layout.activity_sing_up_estabelecimento);
 
-        //hooks to all xml elements in SignUpUser.xml
         name  = findViewById(R.id.nome);
         email  = findViewById(R.id.email);
         userName  = findViewById(R.id.username);
         pass  = findViewById(R.id.password);
         pass2  = findViewById(R.id.password2);
-        telefone_number  = findViewById(R.id.telefone);
-        registrar  = findViewById(R.id.registrar);
+        tipo  = findViewById(R.id.tipo);
+        morada  = findViewById(R.id.morada);
+        registrar  = findViewById(R.id.continuar);
 
         //Save data in firebase on button click
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-               if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2()) {
+                /*if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2() | validarMorada()) {
                     return;
-               }
+                }*/
 
                 rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("users");
+                reference = rootNode.getReference("estabelecimentos");
 
                 //get all the values
                 String nome = name.getEditText().getText().toString();
                 String username = userName.getEditText().getText().toString();
                 String mail = email.getEditText().getText().toString();
                 String password = pass2.getEditText().getText().toString();
-                String telefone = telefone_number.getEditText().getText().toString();
-                String tipo = getIntent().getExtras().getString("tipo");
+                String moradaa = morada.getEditText().getText().toString();
+                String tipoo = tipo.getEditText().getText().toString();
 
                 /*Intent intent = new Intent(getApplicationContext(), Verificar.class);
                 intent.putExtra("telefone", telefone);
 
                 startActivity(intent);*/
 
-
-                UserHelper user = new UserHelper(tipo, nome, username, mail, password, telefone);
-                reference.child(username).setValue(user);
+                Estabelecimento estabelecimento = new Estabelecimento(tipoo, nome, username, mail, password, moradaa);
+                reference.child(username).setValue(estabelecimento);
 
             }
         });
+
     }
 
     private Boolean validarNome(){
@@ -76,6 +77,19 @@ public class SingUpUser extends AppCompatActivity {
         } else {
             name.setError(null);
             name.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private Boolean validarMorada(){
+        String val = morada.getEditText().getText().toString();
+
+        if(val.isEmpty()){
+            morada.setError("O campo não pode estar Vazio!");
+            return false;
+        } else {
+            morada.setError(null);
+            morada.setErrorEnabled(false);
             return true;
         }
     }
@@ -151,5 +165,4 @@ public class SingUpUser extends AppCompatActivity {
             return true;
         }
     }
-
 }

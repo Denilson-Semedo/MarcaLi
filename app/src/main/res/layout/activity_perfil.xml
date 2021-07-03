@@ -67,107 +67,107 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
+        android:layout_weight="5"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Nome Completo">
+            android:hint="Nome Completo"
+            android:enabled="false"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:drawableLeft="@drawable/ic_person_outline"
+            android:drawablePadding="10dp"
+            android:background="@android:drawable/editbox_background"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/ic_person_outline"
-                android:text="Denilson Semedo Tavares"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Email">
+            android:layout_marginTop="20dp"
+            android:hint="Email"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:drawableLeft="@drawable/ic_email_outline"
+            android:drawablePadding="10dp"
+            android:background="@android:drawable/editbox_background"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/ic_email_outline"
-                android:text="dstavares00@gmail.com"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Telefone">
+            android:layout_marginTop="20dp"
+            android:hint="Telefone"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_phone_outline"
+            android:background="@android:drawable/editbox_background"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/ic_phone_outline"
-                android:text="9863786"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/morada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Morada">
+            android:layout_marginTop="20dp"
+            android:hint="Morada"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_pin_outline"
+            android:background="@android:drawable/editbox_background"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/ic_pin_outline"
-                android:text="Calabaceira"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Password">
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_lock_outline"
+            android:background="@android:drawable/editbox_background"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/ic_lock_outline"
-                android:text="1234"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/editar"
             android:layout_width="330dp"
             android:layout_height="47dp"
-            android:drawableRight="@drawable/ic_log_out"
+            android:drawablePadding="10dp"
+            android:text="EditAr DADOS"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:backgroundTint="#4CAF50"/>
+
+        <Button
+            android:id="@+id/logOut"
+            android:layout_width="330dp"
+            android:layout_height="47dp"
             android:drawablePadding="10dp"
             android:text="Terminar sessão"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:backgroundTint="#F60909"/>
 

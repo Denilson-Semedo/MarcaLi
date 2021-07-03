@@ -38,9 +38,18 @@ public class SingUp1 extends AppCompatActivity {
     }
 
     private void switchActivities() {
-        Intent switchActivityIntent = new Intent(this, SingUpUser.class);
-        switchActivityIntent.putExtra("tipo", tipo);
-        startActivity(switchActivityIntent);
+
+        if (!prop.isChecked() && user.isChecked()){
+            Intent switchActivityIntent = new Intent(this, SingUpUser.class);
+            switchActivityIntent.putExtra("tipo", tipo);
+            startActivity(switchActivityIntent);
+        }
+
+        if (prop.isChecked() && !user.isChecked()){
+            Intent switchActivityIntent = new Intent(this, SingUpEstabelecimento.class);
+            switchActivityIntent.putExtra("tipo", tipo);
+            startActivity(switchActivityIntent);
+        }
     }
 
     public void onRadioButtonClicked(View view) {

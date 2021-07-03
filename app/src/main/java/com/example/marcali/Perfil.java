@@ -16,12 +16,16 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -33,7 +37,11 @@ public class Perfil extends AppCompatActivity {
 
     ImageView perfilPic;
     TextView field_user;
-    TextInputLayout field_nome, field_email, field_telefone, field_morada, field_password;
+    EditText field_nome, field_email, field_telefone, field_morada, field_password;
+    Button editar, logout;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     static final int FROM_CAMERA_CODE = 1, FROM_GALLERY_CODE = 2;
 
@@ -49,6 +57,8 @@ public class Perfil extends AppCompatActivity {
         field_morada = findViewById(R.id.morada);
         field_password = findViewById(R.id.password);
         field_user = findViewById(R.id.user);
+        editar = findViewById(R.id.editar);
+        logout = findViewById(R.id.logOut);
 
 
         perfilPic = findViewById(R.id.perfilPic);
@@ -83,6 +93,47 @@ public class Perfil extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!field_nome.isEnabled() == true){
+                    field_nome.setEnabled(true);
+                    field_email.setEnabled(true);
+                    field_telefone.setEnabled(true);
+                    field_morada.setEnabled(true);
+                    field_password.setEnabled(true);
+                    field_user.setEnabled(true);
+
+                    editar.setText("Guardar Dados");
+                } else {
+
+                    rootNode = FirebaseDatabase.getInstance();
+                    reference = rootNode.getReference("users");
+
+                    //get all the values
+                    String nome = field_nome.getText().toString();
+                    String mail = field_email.getText().toString();
+                    String password = field_password.getText().toString();
+                    String morada = field_morada.getText().toString();
+                    String telefone = field_telefone.getText().toString();
+                    String user = field_user.getText().toString();
+
+                    reference.child(user).setValue(user);
+
+                    field_nome.setEnabled(false);
+                    field_email.setEnabled(false);
+                    field_telefone.setEnabled(false);
+                    field_morada.setEnabled(false);
+                    field_password.setEnabled(false);
+                    field_user.setEnabled(false);
+
+
+
+                    editar.setText("Editar Dados");
+                }
             }
         });
 
@@ -158,13 +209,17 @@ public class Perfil extends AppCompatActivity {
         String user_morada = intent.getStringExtra("morada");
         String user_password = intent.getStringExtra("password");
 
-        field_email.getEditText().setText(user_email);
-        field_nome.getEditText().setText(user_nome);
-        field_telefone.getEditText().setText("+238 " + user_telefone);
-        field_morada.getEditText().setText(user_morada);
-        field_password.getEditText().setText(user_password);
+        field_email.setText(user_email);
+        field_nome.setText(user_nome);
+        field_telefone.setText("+238 " + user_telefone);
+        field_morada.setText(user_morada);
+        field_password.setText(user_password);
         field_user.setText(user_username);
     }
+
+   /* public void editarDados(){
+        if (isNameChanged() || )
+    }*/
 
     public void msg(Context c, String s) {
         Toast.makeText(c, s, Toast.LENGTH_SHORT).show();
