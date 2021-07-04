@@ -113,15 +113,7 @@ public class Perfil extends AppCompatActivity {
                     rootNode = FirebaseDatabase.getInstance();
                     reference = rootNode.getReference("users");
 
-                    //get all the values
-                    String nome = field_nome.getText().toString();
-                    String mail = field_email.getText().toString();
-                    String password = field_password.getText().toString();
-                    String morada = field_morada.getText().toString();
-                    String telefone = field_telefone.getText().toString();
-                    String user = field_user.getText().toString();
-
-                    reference.child(user).setValue(user);
+                    editarDados();
 
                     field_nome.setEnabled(false);
                     field_email.setEnabled(false);
@@ -129,8 +121,6 @@ public class Perfil extends AppCompatActivity {
                     field_morada.setEnabled(false);
                     field_password.setEnabled(false);
                     field_user.setEnabled(false);
-
-
 
                     editar.setText("Editar Dados");
                 }
@@ -215,11 +205,19 @@ public class Perfil extends AppCompatActivity {
         field_morada.setText(user_morada);
         field_password.setText(user_password);
         field_user.setText(user_username);
+
+
     }
 
-   /* public void editarDados(){
-        if (isNameChanged() || )
-    }*/
+   public void editarDados(){
+       reference.child(field_user.getText().toString()).child("nome").setValue(field_nome.getText().toString());
+       reference.child(field_user.getText().toString()).child("email").setValue(field_email.getText().toString());
+       reference.child(field_user.getText().toString()).child("telefone").setValue(field_telefone.getText().toString());
+       reference.child(field_user.getText().toString()).child("morada").setValue(field_morada.getText().toString());
+       reference.child(field_user.getText().toString()).child("password").setValue(field_password.getText().toString());
+
+       msg(this, "Dados Guardados");
+    }
 
     public void msg(Context c, String s) {
         Toast.makeText(c, s, Toast.LENGTH_SHORT).show();
