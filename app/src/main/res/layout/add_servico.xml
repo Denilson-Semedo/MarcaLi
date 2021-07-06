@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome Serviço"
+        android:textColorHint="@color/black"/>
+
+    <EditText
+        android:id="@+id/preco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Preço (ECV)"
+        android:textColorHint="@color/black"
+        android:layout_below="@+id/nome"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADicionar"
+        android:backgroundTint="@color/main"
+        android:layout_below="@+id/preco"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

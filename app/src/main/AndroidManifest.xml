@@ -19,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MarcaLi">
+        <activity android:name=".PerfilEstbelecimento"></activity>
         <activity android:name=".SingUpEstabelecimento" />
         <activity android:name=".Agendamentos" />
         <activity android:name=".Pesquisar" />
