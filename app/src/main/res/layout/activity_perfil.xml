@@ -169,7 +169,8 @@
             android:text="Terminar sessão"
             android:textColor="@color/white"
             android:layout_gravity="center"
-            android:backgroundTint="#F60909"/>
+            android:backgroundTint="#F60909"
+            />
 
     </LinearLayout>
 
