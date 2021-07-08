@@ -3,8 +3,8 @@ package com.example.marcali;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +25,9 @@ public class Login extends AppCompatActivity {
     //variaveis
     TextInputLayout userName, pass;
     Button cadastro, login;
+
+    public String SHARED_PREFS = "sharedPrefs";
+    public String USER = "user";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +129,7 @@ public class Login extends AppCompatActivity {
 
                             startActivity(intentUser);
                         }else{
-                            Intent intentEstab = new Intent(getApplicationContext(),PerfilEstbelecimento.class);
+                            Intent intentEstab = new Intent(getApplicationContext(),Perfil.class);
 
                             intentEstab.putExtra("nome", BD_nome);
                             intentEstab.putExtra("username", BD_username);
@@ -134,6 +137,10 @@ public class Login extends AppCompatActivity {
                             intentEstab.putExtra("telefone", BD_telefone);
                             intentEstab.putExtra("morada", BD_morada);
                             intentEstab.putExtra("password", BD_password);
+
+                            saveUser(BD_username);
+
+                           // Toast.makeText(getApplicationContext(), getUser(), Toast.LENGTH_SHORT).show();
 
                             startActivity(intentEstab);
                         }
@@ -155,54 +162,19 @@ public class Login extends AppCompatActivity {
 
             }*/
         });
+    }
 
-        validarEstabelecimento.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot dataSnapshot) {
+    public void saveUser(String usernam) {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(USER, usernam);
+        editor.commit();
 
-                if (dataSnapshot.exists()){
+    }
 
-                    userName.setError(null);
-                    userName.setErrorEnabled(false);
-
-                    String passwordd = dataSnapshot.child(userNameInput).child("password").getValue(String.class);
-
-                    if (passwordd.equals(passwordInput)) {
-
-                                    /*String BD_nome = dataSnapshot.child(userNameInput).child("nome").getValue(String.class);
-                                    String BD_username = dataSnapshot.child(userNameInput).child("username").getValue(String.class);
-                                    String BD_email = dataSnapshot.child(userNameInput).child("email").getValue(String.class);
-                                    String BD_telefone = dataSnapshot.child(userNameInput).child("telefone").getValue(String.class);
-                                    String BD_morada = dataSnapshot.child(userNameInput).child("morada").getValue(String.class);
-                                    String BD_password = dataSnapshot.child(userNameInput).child("password").getValue(String.class);*/
-
-
-                        Intent intentEstab = new Intent(getApplicationContext(),PerfilEstbelecimento.class);
-                                    /*intentEstab.putExtra("nome", BD_nome);
-                                    intentEstab.putExtra("username", BD_username);
-                                    intentEstab.putExtra("email", BD_email);
-                                    intentEstab.putExtra("telefone", BD_telefone);
-                                    intentEstab.putExtra("morada", BD_morada);
-                                    intentEstab.putExtra("password", BD_password);*/
-
-                        startActivity(intentEstab);
-
-                    } else {
-                        pass.setError("Password Incorreto!!");
-                        pass.requestFocus();
-                    }
-                } else {
-                    userName.setError("Utilizador não encontrado!!");
-                    userName.requestFocus();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
+    public String getUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        return sharedPreferences.getString(USER,"");
     }
 
 }

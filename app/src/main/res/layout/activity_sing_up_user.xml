@@ -182,7 +182,7 @@
             android:id="@+id/registrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#8257E6"
+            android:background="@drawable/btn_shape"
             android:text="Registrar"
             android:textColor="@color/white"
             app:backgroundTint="#8257E6"

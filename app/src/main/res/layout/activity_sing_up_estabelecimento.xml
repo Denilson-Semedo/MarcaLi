@@ -187,7 +187,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
             android:layout_marginBottom="5dp"
-            android:background="#8257E6"
+            android:background="@drawable/btn_shape"
             android:backgroundTint="#8257E6"
             android:text="Continuar"
             android:textColor="@color/white"

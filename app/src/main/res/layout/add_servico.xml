@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADicionar"
-        android:backgroundTint="@color/main"
+        android:background="@drawable/btn_shape"
         android:layout_below="@+id/preco"
         android:layout_alignParentRight="true"/>
 

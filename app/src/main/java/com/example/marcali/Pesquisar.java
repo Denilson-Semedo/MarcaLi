@@ -75,12 +75,12 @@ public class Pesquisar extends AppCompatActivity {
             }
         });
 
-        pesquisarBtn.setOnClickListener(new View.OnClickListener() {
+        /*pesquisarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //pesquisarFirebase();
             }
-        });
+        });*/
 
 
 

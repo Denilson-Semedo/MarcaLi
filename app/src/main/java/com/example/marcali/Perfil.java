@@ -10,6 +10,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,6 +43,9 @@ public class Perfil extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+
+    public String SHARED_PREFS = "sharedPrefs";
+    public String USER = "user";
 
     static final int FROM_CAMERA_CODE = 1, FROM_GALLERY_CODE = 2;
 
@@ -210,13 +214,18 @@ public class Perfil extends AppCompatActivity {
     }
 
    public void editarDados(){
-       reference.child(field_user.getText().toString()).child("nome").setValue(field_nome.getText().toString());
+       /*reference.child(field_user.getText().toString()).child("nome").setValue(field_nome.getText().toString());
        reference.child(field_user.getText().toString()).child("email").setValue(field_email.getText().toString());
        reference.child(field_user.getText().toString()).child("telefone").setValue(field_telefone.getText().toString());
        reference.child(field_user.getText().toString()).child("morada").setValue(field_morada.getText().toString());
-       reference.child(field_user.getText().toString()).child("password").setValue(field_password.getText().toString());
+       reference.child(field_user.getText().toString()).child("password").setValue(field_password.getText().toString());*/
 
-       msg(this, "Dados Guardados");
+       msg(this, getUser());
+    }
+
+    public String getUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        return sharedPreferences.getString(USER,"");
     }
 
     public void msg(Context c, String s) {

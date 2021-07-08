@@ -107,7 +107,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Continuar"
-            android:backgroundTint="@color/main"/>
+            android:background="@drawable/btn_shape"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
