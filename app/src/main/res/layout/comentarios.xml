@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="300dp"
+    android:layout_height="120dp"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="274dp"
         android:layout_height="94dp"
         android:padding="15dp"
-        android:background="@color/main"
+        android:background="@drawable/btn_shape"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -15,6 +16,7 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/userNom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -27,37 +29,16 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp">
+                <RatingBar
+                    android:id="@+id/ratings"
+                    android:layout_width="80dp"
+                    android:layout_height="18dp"
+                    android:numStars = "5"
+                    android:rating   = "1"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:progressTint="#FFCC01"/>
 
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_star_outline" />
 
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_star_outline" />
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_star_outline" />
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_star_outline" />
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_star_outline" />
-
-                </LinearLayout>
 
             </RelativeLayout>
 
@@ -66,6 +47,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/textoComent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

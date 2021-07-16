@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SingUpEstabelecimento extends AppCompatActivity {
 
     //variaveis
-    TextInputLayout name, email, userName, tipo, morada, pass, pass2;
+    TextInputLayout name, userName, tipo, morada, pass, pass2;
     Button registrar;
 
     FirebaseDatabase rootNode;
@@ -27,7 +27,6 @@ public class SingUpEstabelecimento extends AppCompatActivity {
         setContentView(R.layout.activity_sing_up_estabelecimento);
 
         name  = findViewById(R.id.nome);
-        email  = findViewById(R.id.email);
         userName  = findViewById(R.id.username);
         pass  = findViewById(R.id.password);
         pass2  = findViewById(R.id.password2);
@@ -40,9 +39,9 @@ public class SingUpEstabelecimento extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                /*if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2() | validarMorada()) {
+                if (!validarNome() | !validarUserName() | !validarPassword() | !validarPassword2() | validarMorada()) {
                     return;
-                }*/
+                }
 
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("estabelecimentos");
@@ -50,7 +49,6 @@ public class SingUpEstabelecimento extends AppCompatActivity {
                 //get all the values
                 String nome = name.getEditText().getText().toString();
                 String username = userName.getEditText().getText().toString();
-                String mail = email.getEditText().getText().toString();
                 String password = pass2.getEditText().getText().toString();
                 String moradaa = morada.getEditText().getText().toString();
                 String tipoo = tipo.getEditText().getText().toString();
@@ -60,7 +58,7 @@ public class SingUpEstabelecimento extends AppCompatActivity {
 
                 startActivity(intent);*/
 
-                Estabelecimento estabelecimento = new Estabelecimento(tipoo, nome, username, mail, password, moradaa);
+                Estabelecimento estabelecimento = new Estabelecimento(tipoo, nome, username, password, moradaa);
                 reference.child(username).setValue(estabelecimento);
 
             }
@@ -114,7 +112,7 @@ public class SingUpEstabelecimento extends AppCompatActivity {
         }
     }
 
-    private Boolean validarEmail(){
+    /*private Boolean validarEmail(){
         String val = email.getEditText().getText().toString();
         String campoEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -128,7 +126,7 @@ public class SingUpEstabelecimento extends AppCompatActivity {
             email.setError(null);
             return true;
         }
-    }
+    }*/
 
     private Boolean validarPassword(){
         String val = pass.getEditText().getText().toString();

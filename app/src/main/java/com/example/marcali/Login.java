@@ -2,6 +2,7 @@ package com.example.marcali;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +34,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         userName  = findViewById(R.id.username);
         pass  = findViewById(R.id.password);
@@ -101,14 +103,12 @@ public class Login extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.exists()){
-
                     userName.setError(null);
                     userName.setErrorEnabled(false);
 
                     String passwordd = dataSnapshot.child(userNameInput).child("password").getValue(String.class);
 
                     if (passwordd.equals(passwordInput)) {
-
                         String BD_nome = dataSnapshot.child(userNameInput).child("nome").getValue(String.class);
                         String BD_username = dataSnapshot.child(userNameInput).child("username").getValue(String.class);
                         String BD_email = dataSnapshot.child(userNameInput).child("email").getValue(String.class);
@@ -116,35 +116,15 @@ public class Login extends AppCompatActivity {
                         String BD_morada = dataSnapshot.child(userNameInput).child("morada").getValue(String.class);
                         String BD_password = dataSnapshot.child(userNameInput).child("password").getValue(String.class);
 
+                        Intent intent = new Intent(getApplicationContext(),Perfil.class);
+                        intent.putExtra("nome", BD_nome);
+                        intent.putExtra("username", BD_username);
+                        intent.putExtra("email", BD_email);
+                        intent.putExtra("telefone", BD_telefone);
+                        intent.putExtra("morada", BD_morada);
+                        intent.putExtra("password", BD_password);
 
-                        if (dataSnapshot.child(userNameInput).child("tipo").getValue(String.class) == "normalUser"){
-                            Intent intentUser = new Intent(getApplicationContext(),Perfil.class);
-
-                            intentUser.putExtra("nome", BD_nome);
-                            intentUser.putExtra("username", BD_username);
-                            intentUser.putExtra("email", BD_email);
-                            intentUser.putExtra("telefone", BD_telefone);
-                            intentUser.putExtra("morada", BD_morada);
-                            intentUser.putExtra("password", BD_password);
-
-                            startActivity(intentUser);
-                        }else{
-                            Intent intentEstab = new Intent(getApplicationContext(),Perfil.class);
-
-                            intentEstab.putExtra("nome", BD_nome);
-                            intentEstab.putExtra("username", BD_username);
-                            intentEstab.putExtra("email", BD_email);
-                            intentEstab.putExtra("telefone", BD_telefone);
-                            intentEstab.putExtra("morada", BD_morada);
-                            intentEstab.putExtra("password", BD_password);
-
-                            saveUser(BD_username);
-
-                           // Toast.makeText(getApplicationContext(), getUser(), Toast.LENGTH_SHORT).show();
-
-                            startActivity(intentEstab);
-                        }
-
+                        startActivity(intent);
                     } else {
                         pass.setError("Password Incorreto!!");
                         pass.requestFocus();
@@ -156,11 +136,45 @@ public class Login extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
 
-            /*@Override
-            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
+        validarEstabelecimento.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    userName.setError(null);
+                    userName.setErrorEnabled(false);
 
-            }*/
+                    String passwordd = snapshot.child(userNameInput).child("password").getValue(String.class);
+
+                    if (passwordd.equals(passwordInput)) {
+                        String BD_nome = snapshot.child(userNameInput).child("nome").getValue(String.class);
+                        String BD_username = snapshot.child(userNameInput).child("username").getValue(String.class);
+                        String BD_email = snapshot.child(userNameInput).child("email").getValue(String.class);
+                        String BD_telefone = snapshot.child(userNameInput).child("telefone").getValue(String.class);
+                        String BD_morada = snapshot.child(userNameInput).child("morada").getValue(String.class);
+                        String BD_password = snapshot.child(userNameInput).child("password").getValue(String.class);
+
+                        Intent intent = new Intent(getApplicationContext(),PerfilEstbelecimento.class);
+                        intent.putExtra("nome", BD_nome);
+                        intent.putExtra("username", BD_username);
+                        intent.putExtra("email", BD_email);
+                        intent.putExtra("telefone", BD_telefone);
+                        intent.putExtra("morada", BD_morada);
+                        intent.putExtra("password", BD_password);
+
+                        startActivity(intent);
+                    } else {
+                        pass.setError("Password Incorreto!!");
+                        pass.requestFocus();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
         });
     }
 

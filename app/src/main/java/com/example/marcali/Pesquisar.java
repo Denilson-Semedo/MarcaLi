@@ -47,17 +47,10 @@ public class Pesquisar extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("estabelecimentos");
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(this));
-
+    
         list = new ArrayList<>();
         pesquisarAdapter = new PesquisarAdapter(this,list);
         recView.setAdapter(pesquisarAdapter);
-
-        pesquisar = findViewById(R.id.pesquisar);
-        pesquisarBtn = findViewById(R.id.pesquisarBtn);
-
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        bottomNavigationView.setSelectedItemId(R.id.search);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -74,6 +67,13 @@ public class Pesquisar extends AppCompatActivity {
 
             }
         });
+
+        pesquisar = findViewById(R.id.pesquisar);
+        pesquisarBtn = findViewById(R.id.pesquisarBtn);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setSelectedItemId(R.id.search);
 
         /*pesquisarBtn.setOnClickListener(new View.OnClickListener() {
             @Override

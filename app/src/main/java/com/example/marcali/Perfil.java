@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +29,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -43,6 +47,7 @@ public class Perfil extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    FirebaseStorage storageReference = FirebaseStorage.getInstance();
 
     public String SHARED_PREFS = "sharedPrefs";
     public String USER = "user";
@@ -192,6 +197,18 @@ public class Perfil extends AppCompatActivity {
             }
 
         }
+    }
+
+    public void uploadToFirebase(Uri uri){
+
+        DatabaseReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+
+    }
+
+    private String getFileExtension(Uri mUri){
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(mUri));
     }
 
     public void prencherDados(){

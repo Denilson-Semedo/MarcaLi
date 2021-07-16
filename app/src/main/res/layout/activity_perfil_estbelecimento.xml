@@ -5,35 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="10"
     tools:context=".PerfilEstbelecimento"
     android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="3.2"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="215dp"
+            android:layout_height="175dp"
             android:background="@drawable/barbearia" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="117dp"
-            android:layout_height="117dp"
-            android:layout_alignParentEnd="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="223dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="3dp"
             android:src="@drawable/denilson1" />
 
-        <TextView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="67dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/ic_edit_2_outline" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="137dp"
+            android:layout_marginBottom="32dp"
             android:text="Barbearia Cesar"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -42,11 +53,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="41dp">
+            android:layout_marginStart="137dp"
+            android:layout_marginBottom="7dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -86,10 +97,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:padding="20dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -106,7 +125,7 @@
                 android:layout_centerVertical="true"/>
 
             <ImageButton
-                android:id="@+id/adicionar"
+                android:id="@+id/adicionarServico"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_plus_outline"
@@ -116,21 +135,58 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ServicoView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp">
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:padding="20dp"
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comentarios"
+                android:textColor="@color/main"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+
+            <ImageButton
+                android:id="@+id/adicionarComentario"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_plus_outline"
+                android:layout_alignParentRight="true"
+                android:backgroundTint="#168257E6"/>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comentVieww"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"/>
 
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/main"
+        app:itemTextColor="@drawable/selector"
+        app:itemTextAppearanceInactive="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom="true"/>
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SingUpUser extends AppCompatActivity {
 
     //variaveis
-    TextInputLayout name, email, userName, telefone_number, pass, pass2;
+    TextInputLayout name, userName, telefone_number, pass, pass2;
     Button registrar;
 
     FirebaseDatabase rootNode;
@@ -27,7 +27,6 @@ public class SingUpUser extends AppCompatActivity {
 
         //hooks to all xml elements in SignUpUser.xml
         name  = findViewById(R.id.nome);
-        email  = findViewById(R.id.email);
         userName  = findViewById(R.id.username);
         pass  = findViewById(R.id.password);
         pass2  = findViewById(R.id.password2);
@@ -39,7 +38,7 @@ public class SingUpUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               if (!validarNome() | !validarUserName() | !validarEmail() | !validarPassword() | !validarPassword2()) {
+               if (!validarNome() | !validarUserName() | !validarPassword() | !validarPassword2()) {
                     return;
                }
 
@@ -49,7 +48,6 @@ public class SingUpUser extends AppCompatActivity {
                 //get all the values
                 String nome = name.getEditText().getText().toString();
                 String username = userName.getEditText().getText().toString();
-                String mail = email.getEditText().getText().toString();
                 String password = pass2.getEditText().getText().toString();
                 String telefone = telefone_number.getEditText().getText().toString();
                 String tipo = getIntent().getExtras().getString("tipo");
@@ -60,7 +58,8 @@ public class SingUpUser extends AppCompatActivity {
                 startActivity(intent);*/
 
 
-                UserHelper user = new UserHelper(tipo, nome, username, mail, password, telefone);
+                UserHelper user = new UserHelper(tipo, nome, username, password, telefone);
+
                 reference.child(username).setValue(user);
 
             }
@@ -96,22 +95,6 @@ public class SingUpUser extends AppCompatActivity {
         } else {
             userName.setError(null);
             userName.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private Boolean validarEmail(){
-        String val = email.getEditText().getText().toString();
-        String campoEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-        if(val.isEmpty()){
-            email.setError("O campo não pode estar Vazio!");
-            return false;
-        } else if (!val.matches(campoEmail)) {
-            email.setError("Endereço email invalido!");
-            return false;
-        } else {
-            email.setError(null);
             return true;
         }
     }

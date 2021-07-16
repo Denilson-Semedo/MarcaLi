@@ -2,17 +2,16 @@ package com.example.marcali;
 
 public class Estabelecimento {
 
-    String tipo, nome, username, email, password, morada;
+    String tipo, nome, username, password, morada;
 
     public Estabelecimento(){
 
     }
 
-    public Estabelecimento(String tipo, String nome, String username, String email, String password, String morada){
+    public Estabelecimento(String tipo, String nome, String username, String password, String morada){
         this.tipo = tipo;
         this.nome = nome;
         this.username = username;
-        this.email = email;
         this.password = password;
         this.morada = morada;
     }
@@ -39,14 +38,6 @@ public class Estabelecimento {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {

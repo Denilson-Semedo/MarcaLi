@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="10"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/nomeServ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Carecada"
@@ -26,6 +26,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
+                android:id="@+id/precoServ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -37,118 +38,20 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:orientation="vertical">
 
             <Button
-                android:layout_width="121dp"
-                android:layout_height="65dp"
+                android:layout_width="111dp"
+                android:layout_height="45dp"
                 android:text="Agendar"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                android:backgroundTint="@color/main"/>
+                android:background="@drawable/btn_shape"/>
 
         </LinearLayout>
 
     </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.1"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Carecada"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="100$00"
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="121dp"
-                android:layout_height="65dp"
-                android:text="Agendar"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/main"/>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.1"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Carecada"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="100$00"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:gravity="bottom"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="121dp"
-                android:layout_height="65dp"
-                android:text="Agendar"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/main"/>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
 
 </LinearLayout>
